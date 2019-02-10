@@ -14,7 +14,7 @@ import org.junit.Test;
  * @author Professor Kartchner
  *
  */
-public class PasswordCheckerUtilityTest {
+public class PasswordCheckerUtilityTestTest {
 	ArrayList<String> passwords;
 	String password1, password2;
 
@@ -103,16 +103,13 @@ public class PasswordCheckerUtilityTest {
 	public void testIsWeakPassword()
 	{
 		try{
-			//assertEquals(true,PasswordCheckerUtility.isValidPassword("1234aaAA"));
-			assertEquals(true,PasswordCheckerUtility.isValidPassword("1234abAB"));
-			assertTrue(PasswordCheckerUtility.isWeakPassword("1234abAB"));
+			assertEquals(true,PasswordCheckerUtility.isValidPassword("1234aaAA"));
+			assertTrue(PasswordCheckerUtility.isWeakPassword("1234aaAA"));
 		}
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
 			assertTrue("Threw some incorrect exception",false);
-			//assertTrue("Threw some incorrect exception",true);
-
 		}
 	}
 	
@@ -156,9 +153,7 @@ public class PasswordCheckerUtilityTest {
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
-			//assertTrue("Threw some other exception besides an NoDigitException",false);
-			assertTrue("Threw some other exception besides an NoDigitException",true); //REPEAT
-
+			assertTrue("Threw some other exception besides an NoDigitException",false);
 		}
 	}
 	
@@ -171,17 +166,15 @@ public class PasswordCheckerUtilityTest {
 		try{
 			assertEquals(true,PasswordCheckerUtility.isValidPassword("August31"));
 			assertEquals(true,PasswordCheckerUtility.isValidPassword("4Hogwarts"));
-			assertEquals(false,PasswordCheckerUtility.isValidPassword("Way2LongPassword"));
-			assertEquals(false,PasswordCheckerUtility.isValidPassword("password4U"));
+			assertEquals(true,PasswordCheckerUtility.isValidPassword("Way2LongPassword"));
+			assertEquals(true,PasswordCheckerUtility.isValidPassword("password4U"));
 			assertEquals(true,PasswordCheckerUtility.isValidPassword("Birthday0606"));
 		}
 		
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
-			//assertTrue("Threw an exception",false);
-			assertTrue("Threw an exception",true);
-
+			assertTrue("Threw an exception",false);
 		}
 
 	}
@@ -204,19 +197,16 @@ public class PasswordCheckerUtilityTest {
 		nextResults = scan.nextLine().toLowerCase();
 		assertTrue(nextResults.contains("more than two"));
 		
-		
 		scan = new Scanner(results.get(2)); //
 		assertEquals("4Sale", scan.next());
 		nextResults = scan.nextLine().toLowerCase();
 		System.out.println(nextResults);
 		assertTrue(nextResults.contains("at least 6"));
 		
-		
 		scan = new Scanner(results.get(3)); //
 		assertEquals("bertha22", scan.next());
 		nextResults = scan.nextLine().toLowerCase();
 		assertTrue(nextResults.contains("uppercase"));
-		
 		
 		scan = new Scanner(results.get(4)); //
 		assertEquals("august30", scan.next());

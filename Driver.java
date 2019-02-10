@@ -1,3 +1,10 @@
+/*
+ * CMSC 204 - A1 - GUI
+ * Driver
+ * @Author Jonathan Mariano
+ * 
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -155,7 +162,7 @@ public class Driver {
     			}        			
     		}
     		else{
-            	JOptionPane.showMessageDialog(null, "Not Equal");
+            	JOptionPane.showMessageDialog(null, "The passwords do not match");
             }
     	}
     }
