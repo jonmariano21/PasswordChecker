@@ -69,10 +69,10 @@ public class PasswordCheckerUtility {
             prevchar = ch;
             
         }
-        //System.out.println("\n The capitalFlag = " + capitalFlag);
-        //System.out.println("\n The lowerCaseFlag = " + lowerCaseFlag);
-        //System.out.println("\n The numberFlag = " + numberFlag);
-        System.out.println("\n The repeatError = " + repeatError);
+        System.out.println("\n The capitalFlag = " + capitalFlag);
+        System.out.println("\n The lowerCaseFlag = " + lowerCaseFlag);
+        System.out.println("\n The numberFlag = " + numberFlag);
+        System.out.println("The repeatError = " + repeatError);
 
 
         //VALID
@@ -106,7 +106,7 @@ public class PasswordCheckerUtility {
         }
         // REPEAT
         else if(repeatError == true){
-        	System.out.println("Should throw InvalidSequenceException! \n");
+        	System.out.println("Should throw InvalidSequenceException!");
         	throw new InvalidSequenceException(str);
         }
         else {
@@ -118,14 +118,14 @@ public class PasswordCheckerUtility {
 
 	// isWeakPassword
 	public static boolean isWeakPassword(String str) {
-		System.out.println("\n INSIDE WEAK.");
-		System.out.println("\n The password = " + str);
+		System.out.println("INSIDE WEAK.");
+		System.out.println("The password = " + str + "\n");
 
 		if(str.length() > 6 && str.length() < 11) {
-			System.out.println("The password is WEAK.");
+			System.out.println("The password is WEAK. \n");
 			return true;
 		}else {
-			System.out.println("The password is NOT weak.");
+			System.out.println("The password is NOT weak. \n");
 			return false;
 		}
 	}
@@ -134,7 +134,8 @@ public class PasswordCheckerUtility {
 	public static ArrayList<String> validPasswords(ArrayList<String> pws) {
 		System.out.println("\n The array of passwords = " + pws);
 		
-		ArrayList<String> test = new ArrayList<String>();
+		ArrayList<String> test;
+		test = new ArrayList<String>();
 		
 		for(String s : pws) {
 			System.out.println("The password from array = " + s);
@@ -142,6 +143,7 @@ public class PasswordCheckerUtility {
 				isValidPassword(s);
 			}
 			catch(Exception e){
+				System.out.println("Print MSG: " + e.getMessage());
 				test.add(e.getMessage());
 			}
 		}

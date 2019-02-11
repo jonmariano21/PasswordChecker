@@ -104,7 +104,9 @@ public class PasswordCheckerUtilityTest {
 	{
 		try{
 			//assertEquals(true,PasswordCheckerUtility.isValidPassword("1234aaAA"));
+			//assertEquals(false,PasswordCheckerUtility.isValidPassword("1234aaAA"));
 			assertEquals(true,PasswordCheckerUtility.isValidPassword("1234abAB"));
+			//assertTrue(PasswordCheckerUtility.isWeakPassword("1234aaAA"));
 			assertTrue(PasswordCheckerUtility.isWeakPassword("1234abAB"));
 		}
 		catch(Exception e)
@@ -200,35 +202,40 @@ public class PasswordCheckerUtilityTest {
 		assertTrue(nextResults.contains("lowercase"));
 		
 		scan = new Scanner(results.get(1)); //
+		assertEquals("Im2cool4U", scan.next());
+		nextResults = scan.nextLine().toLowerCase();
+		assertTrue(nextResults.contains("more than two"));
+		
+		scan = new Scanner(results.get(2)); //
 		assertEquals("george2ZZZ", scan.next());
 		nextResults = scan.nextLine().toLowerCase();
 		assertTrue(nextResults.contains("more than two"));
 		
 		
-		scan = new Scanner(results.get(2)); //
+		scan = new Scanner(results.get(3)); //
 		assertEquals("4Sale", scan.next());
 		nextResults = scan.nextLine().toLowerCase();
 		System.out.println(nextResults);
 		assertTrue(nextResults.contains("at least 6"));
 		
 		
-		scan = new Scanner(results.get(3)); //
+		scan = new Scanner(results.get(4)); //
 		assertEquals("bertha22", scan.next());
 		nextResults = scan.nextLine().toLowerCase();
 		assertTrue(nextResults.contains("uppercase"));
 		
 		
-		scan = new Scanner(results.get(4)); //
+		scan = new Scanner(results.get(5)); //
 		assertEquals("august30", scan.next());
 		nextResults = scan.nextLine().toLowerCase();
 		assertTrue(nextResults.contains("uppercase"));
 		
-		scan = new Scanner(results.get(5)); //
+		scan = new Scanner(results.get(6)); //
 		assertEquals("Abcdef", scan.next());
 		nextResults = scan.nextLine().toLowerCase();
-		assertTrue(nextResults.contains("digit"));
+		assertTrue(nextResults.contains("digit")); //Should be length Exception, not number Exception??
 		
-		scan = new Scanner(results.get(6)); //a
+		scan = new Scanner(results.get(7)); //a
 		assertEquals("Applesxx",scan.next());
 		nextResults = scan.nextLine().toLowerCase();
 		assertTrue(nextResults.contains("digit"));
